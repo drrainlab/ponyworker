@@ -1,4 +1,4 @@
-module ponyworker
+module github.com/drrainlab/ponyworker
 
 go 1.21.0
 

@@ -91,7 +91,11 @@ onceMode := &OnceMode{
         }
     },
 }
+```
 
+### RepeatMode
+
+```go
 repeatMode := &RepeatMode{
     RepeatInterval: 10 * time.Second,
     Fn: func(ctx context.Context, estimateTimeSecs int64) func() error {
@@ -101,7 +105,11 @@ repeatMode := &RepeatMode{
         }
     },
 }
+```
 
+### CyclicMode
+
+```go
 cyclicMode := &CyclicMode{
     Location:    time.UTC,
     DateBegin:   time.Now(),
@@ -120,7 +128,11 @@ cyclicMode := &CyclicMode{
         }
     },
 }
+```
 
+### ScheduleMode
+
+```go
 scheduleMode := &ScheduleMode{
     Location: time.UTC,
     OnFunc: func(ctx context.Context, estimateTimeSecs int64) func() error {
@@ -144,7 +156,11 @@ scheduleMode := &ScheduleMode{
         Dskip:  1,  // Skip 1 day between cycles
     },
 }
+```
 
+Example:
+
+```go
 pool := ponyworker.New()
 err := pool.SpawnWorker(&ponyworker.JobOptions{
     Key:  "worker1",
